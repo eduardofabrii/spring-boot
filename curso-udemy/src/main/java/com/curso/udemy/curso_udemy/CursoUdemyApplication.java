@@ -16,12 +16,7 @@ public class CursoUdemyApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {		
-
 		Curso c = new Curso();
 		c.mostraDados();
-		LOG.info("Finalizando o RUN");
-		LOG.debug("Debugando o codigo!");
-		LOG.warn("Alerta no codigo");
-		LOG.error("Error no codigo");
 	}
 }
