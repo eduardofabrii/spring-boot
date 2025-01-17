@@ -18,6 +18,13 @@ public class Curso {
     @Column(name = "nome_curso", nullable = false)
     private String nome;
 
+
+    
+    @Override
+    public String toString() {
+        return "Curso [id=" + id + ", nome=" + nome + "]";
+    }
+
     public Curso() {
 
     }
