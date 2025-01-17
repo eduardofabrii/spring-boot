@@ -16,21 +16,19 @@ public class Curso {
     private Integer id;
 
     @Column(name = "nome_curso", nullable = false)
-    private String nome;
-
-
+    private String name;
     
     @Override
     public String toString() {
-        return "Curso [id=" + id + ", nome=" + nome + "]";
+        return "Curso [id=" + id + ", name=" + name + "]";
     }
 
     public Curso() {
 
     }
 
-    public Curso(String nome) {
-        this.nome = nome;
+    public Curso(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
@@ -41,11 +39,11 @@ public class Curso {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }    
 }
