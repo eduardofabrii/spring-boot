@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TesteDatabaseApplication",
+            "request": "launch",
+            "mainClass": "com.curso.teste_database.TesteDatabaseApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-CursoUdemyApplication<curso-udemy>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
