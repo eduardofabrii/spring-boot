@@ -1,5 +1,10 @@
 package com.curso.teste_database.entities;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,9 +22,18 @@ public class Curso {
 
     @Column(name = "nome_curso", nullable = false)
     private String name;
-    
+
     @Column(nullable = false)
     private String area;
+
+    @CreationTimestamp
+    @Column(name = "data_criacao")
+    private LocalDateTime dataDeCriacao;
+
+    @UpdateTimestamp
+    @Column(name = "data_atualizacao")
+    private LocalDateTime dataDeAtualizacao;
+
 
     @Override
     public String toString() {
@@ -60,6 +74,22 @@ public class Curso {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public LocalDateTime getDataDeCriacao() {
+        return dataDeCriacao;
+    }
+
+    public void setDataDeCriacao(LocalDateTime dataDeCriacao) {
+        this.dataDeCriacao = dataDeCriacao;
+    }
+
+    public LocalDateTime getDataDeAtualizacao() {
+        return dataDeAtualizacao;
+    }
+
+    public void setDataDeAtualizacao(LocalDateTime dataDeAtualizacao) {
+        this.dataDeAtualizacao = dataDeAtualizacao;
     }    
 
     
