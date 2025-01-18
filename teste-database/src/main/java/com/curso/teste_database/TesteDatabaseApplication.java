@@ -85,8 +85,8 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 		// List<String> cursoFindByQueryAreaParametros = cursoRepository.findByQueryNamePorAreaParametros("%Engenharia%", "engenharia da Computação");
 		// cursoFindByQueryAreaParametros.forEach(curso -> System.out.println(curso));
 
-		System.out.println("Aguardando 10 segundos");
-		Thread.sleep(10000);
+		// System.out.println("Aguardando 10 segundos");
+		// Thread.sleep(10000);
 
 		curso1.setName("Agronomia");
 		cursoRepository.save(curso1);
