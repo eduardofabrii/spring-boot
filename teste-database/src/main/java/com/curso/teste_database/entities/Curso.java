@@ -18,17 +18,24 @@ public class Curso {
     @Column(name = "nome_curso", nullable = false)
     private String name;
     
+    @Column(nullable = false)
+    private String area;
+
     @Override
     public String toString() {
-        return "Curso [id=" + id + ", name=" + name + "]";
+        return "Curso [id=" + id + ", name=" + name + ", area=" + area + "]";
     }
 
     public Curso() {
-
     }
 
     public Curso(String name) {
         this.name = name;
+    }
+
+    public Curso(String name, String area) {
+        this.name = name;
+        this.area = area;
     }
 
     public Integer getId() {
@@ -45,5 +52,15 @@ public class Curso {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }    
+
+    
 }
