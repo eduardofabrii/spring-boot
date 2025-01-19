@@ -2,7 +2,7 @@ package com.curso.teste_database;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,9 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.curso.teste_database.entities.Aluno;
 import com.curso.teste_database.entities.Curso;
 import com.curso.teste_database.entities.Grade;
+import com.curso.teste_database.entities.Materia;
 import com.curso.teste_database.repositories.AlunoRepository;
 import com.curso.teste_database.repositories.CursoRepository;
 import com.curso.teste_database.repositories.GradeRepository;
+import com.curso.teste_database.repositories.MateriaRepository;
 
 @SpringBootApplication
 public class TesteDatabaseApplication implements CommandLineRunner {
@@ -27,6 +29,9 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 
 	@Autowired
 	private GradeRepository gradeRepository;
+
+	@Autowired
+	private MateriaRepository materiaRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TesteDatabaseApplication.class, args);
@@ -63,14 +68,26 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 		);
 		alunoRepository.saveAll(alunos);
 
+		Grade grade1 = new Grade("Ser arquiteto.", aluno1);
+		Grade grade2 = new Grade("Aprender a parte financeira.", aluno3);
+		Grade grade3 = new Grade("Ser programador", aluno2);
 
-		Grade grade1 = new Grade("Melhorar em matematica", aluno2);
-		Grade grade2 = new Grade("Aprender Portugues", aluno3);
-
-		List<Grade> grades = Arrays.asList(
+		Set<Grade> grades = Set.of(
 			grade1, grade2
 		);
+
 		gradeRepository.saveAll(grades);
+
+		Materia materia1 = new Materia("Matemática Aplicada", grades);
+		// Materia materia2 = new Materia("Back-end", grades2);
+		// Materia materia3 = new Materia("Arborização predial", grades2);
+
+		List<Materia> materias = Arrays.asList(
+			materia1
+		);
+		materiaRepository.saveAll(materias);
+
+
 		
 		// curso1.setName("Agronomia");
 		// cursoRepository.save(curso1);
