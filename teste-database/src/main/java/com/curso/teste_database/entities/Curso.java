@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,6 +17,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PostPersist;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
@@ -49,10 +52,16 @@ public class Curso {
     @Transient
     private BigDecimal valorDoCurso;
 
+
+    @OneToMany(mappedBy = "curso")
+    private List<Aluno> alunos = new ArrayList<>();
+
+
     @Override
     public String toString() {
         return "Curso [id=" + id + ", name=" + name + ", area=" + area + "]";
     }
+
 
     public Curso() {
     }
@@ -66,9 +75,10 @@ public class Curso {
         this.area = area;
     }
 
+
     @PrePersist
     private void antesDePersistirDados() {
-        this.usuario = "";
+        this.usuario = "Admin";
     }
 
     @PostPersist
@@ -130,7 +140,15 @@ public class Curso {
 
     public void setValorDoCurso(BigDecimal valorDoCurso) {
         this.valorDoCurso = valorDoCurso;
-    }    
+    }
 
-    
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }    
 }
