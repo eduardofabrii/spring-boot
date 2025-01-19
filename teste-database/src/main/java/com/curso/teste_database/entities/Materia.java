@@ -25,8 +25,8 @@ public class Materia {
     @ManyToMany
     @JoinTable(     
             name = "grade_materia",
-            joinColumns = { @JoinColumn(name = "materia_id", referencedColumnName = "id") },
-            inverseJoinColumns = { @JoinColumn(name = "grade_id", referencedColumnName = "id") }
+            joinColumns = { @JoinColumn(name = "grade_id", referencedColumnName = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "materia_id", referencedColumnName = "id") }
             )
     private Set<Grade> grades = new HashSet<>();
 

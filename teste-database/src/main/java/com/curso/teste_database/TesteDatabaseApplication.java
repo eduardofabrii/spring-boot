@@ -72,14 +72,18 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 		Grade grade2 = new Grade("Aprender a parte financeira.", aluno3);
 		Grade grade3 = new Grade("Ser programador", aluno2);
 
-		Set<Grade> grades = Set.of(
+		Set<Grade> gradesMateria1 = Set.of(
 			grade1, grade2
 		);
 
-		gradeRepository.saveAll(grades);
+		Set<Grade> gradesMateria2 = Set.of(
+			grade3
+		);
 
-		Materia materia1 = new Materia("Matemática Aplicada", grades);
-		// Materia materia2 = new Materia("Back-end", grades2);
+		gradeRepository.saveAll(gradesMateria1);
+
+		Materia materia1 = new Materia("Matemática Aplicada", gradesMateria1);
+		Materia materia2 = new Materia("Back-end", gradesMateria2);
 		// Materia materia3 = new Materia("Arborização predial", grades2);
 
 		List<Materia> materias = Arrays.asList(
