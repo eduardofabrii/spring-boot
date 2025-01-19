@@ -11,8 +11,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.curso.teste_database.entities.Aluno;
 import com.curso.teste_database.entities.Curso;
+import com.curso.teste_database.entities.Grade;
 import com.curso.teste_database.repositories.AlunoRepository;
 import com.curso.teste_database.repositories.CursoRepository;
+import com.curso.teste_database.repositories.GradeRepository;
 
 @SpringBootApplication
 public class TesteDatabaseApplication implements CommandLineRunner {
@@ -22,6 +24,9 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 
 	@Autowired
 	private AlunoRepository alunoRepository;
+
+	@Autowired
+	private GradeRepository gradeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TesteDatabaseApplication.class, args);
@@ -57,6 +62,15 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 		 aluno1, aluno2, aluno3
 		);
 		alunoRepository.saveAll(alunos);
+
+
+		Grade grade1 = new Grade("Melhorar em matematica", aluno2);
+		Grade grade2 = new Grade("Aprender Portugues", aluno3);
+
+		List<Grade> grades = Arrays.asList(
+			grade1, grade2
+		);
+		gradeRepository.saveAll(grades);
 		
 		// curso1.setName("Agronomia");
 		// cursoRepository.save(curso1);
