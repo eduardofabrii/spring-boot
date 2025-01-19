@@ -9,7 +9,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.curso.teste_database.entities.Aluno;
 import com.curso.teste_database.entities.Curso;
+import com.curso.teste_database.repositories.AlunoRepository;
 import com.curso.teste_database.repositories.CursoRepository;
 
 @SpringBootApplication
@@ -17,6 +19,9 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 
 	@Autowired
 	private CursoRepository cursoRepository;
+
+	@Autowired
+	private AlunoRepository alunoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TesteDatabaseApplication.class, args);
@@ -42,6 +47,16 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 		 curso7, curso8, curso9
 		);
 		cursoRepository.saveAll(cursos);
+		
+		Aluno aluno1 = new Aluno("Eduardo Fabri", curso1);
+		Aluno aluno2 = new Aluno("Rudney Fabri", curso3);
+		Aluno aluno3 = new Aluno("Cristiane Kutz Fabri", curso2);
+
+		List<Aluno> alunos = Arrays.asList
+		(
+		 aluno1, aluno2, aluno3
+		);
+		alunoRepository.saveAll(alunos);
 		
 		// curso1.setName("Agronomia");
 		// cursoRepository.save(curso1);
@@ -88,7 +103,7 @@ public class TesteDatabaseApplication implements CommandLineRunner {
 		// System.out.println("Aguardando 10 segundos");
 		// Thread.sleep(10000);
 
-		curso1.setName("Agronomia");
-		cursoRepository.save(curso1);
+		// curso1.setName("Agronomia");
+		// cursoRepository.save(curso1);
 	}
 }
